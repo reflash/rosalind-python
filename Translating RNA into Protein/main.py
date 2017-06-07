@@ -1,5 +1,4 @@
 from functional import seq
-from operator import add
 
 table = {
     'UUU' : 'F',      'CUU' : 'L',      'AUU' : 'I',      'GUU' : 'V',

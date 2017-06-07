@@ -2,7 +2,7 @@ import unittest
 from main import decode
 
 # python -m unittest tests
-class MendelLawTestCase(unittest.TestCase):
+class RnaToProteinTestCase(unittest.TestCase):
 
     def test_input(self):
         rna = 'AUGGCCAUGGCGCCCAGAACUGAGAUCAAUAGUACCCGUAUUAACGGGUGA'
