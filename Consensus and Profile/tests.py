@@ -2,7 +2,7 @@ import unittest
 from main import profile_consensus
 
 # python -m unittest tests
-class SearchSubTestCase(unittest.TestCase):
+class ConsensusProfileTestCase(unittest.TestCase):
 
     def test_input(self):
         data = '''>Rosalind_1
