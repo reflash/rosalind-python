@@ -4,8 +4,6 @@ from neo4j.v1 import GraphDatabase, Driver
 from functional import seq
 from collections import deque
 
-#CREATE (person:Person {name:"Emil", from:"Sweden"})-[r:SAYS]->(message:Message {name:"Hello World!"}) RETURN person, message, r
-
 driver = None
 
 def connect()->Driver:
@@ -70,18 +68,3 @@ def overlap_graph(k: int, data: str) -> str:
         edg.extend(list(map(lambda x: 'Rosalind_' + n1 + ' Rosalind_' + x[0], edges)))
 
     return '\n'.join(edg)
-
-
-# get a row of nodes
-# map to suffix/prefix structure with const k and s
-# copy to deque
-# in a loop rotating deque compare with initial rows (zip->map)
-# generate edges based on adjacency list
-# add them to database
-
-
-# add relationship ne04j
-# MATCH (a:Artist),(b:Album)
-# WHERE a.Name = "Strapping Young Lad" AND b.Name = "Heavy as a Really Heavy Thing"
-# CREATE (a)-[r:RELEASED]->(b)
-# RETURN r
