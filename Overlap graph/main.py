@@ -2,6 +2,7 @@ import itertools
 from functional.pipeline import Sequence
 from neo4j.v1 import GraphDatabase, Driver
 from functional import seq
+from typing import List
 
 driver = None
 
@@ -12,20 +13,20 @@ def connect()->Driver:
         driver = GraphDatabase.driver(uri, auth=("testuser", "testuser"))
     return driver
 
-def add_node(name):
+def add_node(name:str)->None:
     with connect().session() as session:
         session.run("CREATE (a:Node {name:{name}})", name=name)
 
-def add_edge(n1, n2):
+def add_edge(n1:str, n2:str)->None:
     with connect().session() as session:
         session.run("MATCH (n1:Node),(n2:Node) WHERE n1.name = {n1} AND n2.name = {n2} CREATE (n1)-[r:CONNECTED]->(n2)", n1=n1, n2=n2)
 
 
-def clear_nodes():
+def clear_nodes()->None:
     with connect().session() as session:
         session.run("MATCH (n) DETACH DELETE n")
 
-def transpose(l):
+def transpose(l:List)->List:
     return list(map(list, zip(*l)))
 
 
