@@ -2,7 +2,6 @@ import itertools
 from functional.pipeline import Sequence
 from neo4j.v1 import GraphDatabase, Driver
 from functional import seq
-from collections import deque
 
 driver = None
 
